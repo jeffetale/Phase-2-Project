@@ -6,7 +6,7 @@ const PetListing = () => {
 
   useEffect(() => {
     axios
-      .get("apiUrl")
+      .get("https://pets-api-yi52.onrender.com/pets")
       .then((response) => {
         setPets(response.data);
       })

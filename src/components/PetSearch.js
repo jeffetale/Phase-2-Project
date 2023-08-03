@@ -7,7 +7,7 @@ const PetSearch = () => {
 
   const handleSearch = () => {
     axios
-      .get("apiUrl", { params: searchCriteria })
+      .get("https://pets-api-yi52.onrender.com/pets", { params: searchCriteria })
       .then((response) => {
         setSearchResults(response.data);
       })
