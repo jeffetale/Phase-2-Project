@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import axios from "axios";
 
 const PetSearch = ({ onPetSelect }) => {
@@ -8,6 +8,7 @@ const PetSearch = ({ onPetSelect }) => {
     axios
       .get("https://pets-api-yi52.onrender.com/pets")
       .then((response) => {
+        //{ used a type of and filter to remove numerics }
         const filteredPets = response.data.filter((pet) =>
           Object.values(pet)
             .filter((value) => typeof value === "string")
