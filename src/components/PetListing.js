@@ -11,21 +11,22 @@ const PetListing = ({ onPetSelect }) => {
         setPets(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching pet data:", error);
+        console.error("Error fetching pets:", error);
       });
   }, []);
 
   return (
     <div>
       <h2>Pet Listings</h2>
-      <div className="pet-list">
+      <div className="pet-listings">
         {pets.map((pet) => (
           <div key={pet.id} className="pet-card">
             <img src={pet.image} alt={pet.name} />
             <h3>{pet.name}</h3>
             <p>Breed: {pet.breed}</p>
             <p>Age: {pet.age}</p>
-            <button onClick={() => onPetSelect(pet)}>View Details</button>
+
+            <button onClick={() => onPetSelect([pet])}>View Details</button>
           </div>
         ))}
       </div>
@@ -34,4 +35,3 @@ const PetListing = ({ onPetSelect }) => {
 };
 
 export default PetListing;
-

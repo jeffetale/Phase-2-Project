@@ -4,23 +4,26 @@ import PetDetails from "./components/PetDetails";
 import PetListing from "./components/PetListing";
 
 const App = () => {
-  const [selectedPet, setSelectedPet] = useState(null);
+  const [selectedPets, setSelectedPets] = useState([]);
 
-  const handlePetSelect = (pet) => {
-    setSelectedPet(pet);
+  const handlePetSelect = (pets) => {
+    setSelectedPets(pets);
   };
+  
 
   const handleBack = () => {
-    setSelectedPet(null);
+    setSelectedPets([]);
   };
 
   return (
     <div>
       <h1>Pet Adoption App</h1>
       <PetSearch onPetSelect={handlePetSelect} />
-      {selectedPet ? (
+      {selectedPets.length > 0 ? (
         <>
-          <PetDetails pet={selectedPet} onBack={handleBack} />
+          {selectedPets.map((pet) => (
+            <PetDetails key={pet.id} pet={pet} onBack={handleBack} />
+          ))}
         </>
       ) : (
         <>
@@ -29,6 +32,7 @@ const App = () => {
       )}
     </div>
   );
+  
 };
 
 export default App;

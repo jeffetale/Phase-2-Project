@@ -10,7 +10,7 @@ const PetSearch = ({ onPetSelect }) => {
         params: { q: searchValue },
       })
       .then((response) => {
-        onPetSelect(response.data[0]);
+        onPetSelect(response.data);
       })
       .catch((error) => {
         console.error("Error fetching search results:", error);
