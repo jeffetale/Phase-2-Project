@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const PetListing = () => {
+const PetListing = ({ onPetSelect }) => {
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
@@ -25,6 +25,7 @@ const PetListing = () => {
             <h3>{pet.name}</h3>
             <p>Breed: {pet.breed}</p>
             <p>Age: {pet.age}</p>
+            <button onClick={() => onPetSelect(pet)}>View Details</button>
           </div>
         ))}
       </div>
@@ -33,3 +34,4 @@ const PetListing = () => {
 };
 
 export default PetListing;
+

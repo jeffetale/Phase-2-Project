@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const PetSearch = () => {
+const PetSearch = ({ onPetSelect }) => {
   const [searchCriteria, setSearchCriteria] = useState({});
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = () => {
     axios
-      .get("https://pets-api-yi52.onrender.com/pets", { params: searchCriteria })
+      .get("https://pets-api-yi52.onrender.com/pets", {
+        params: searchCriteria,
+      })
       .then((response) => {
         setSearchResults(response.data);
       })
@@ -29,6 +31,8 @@ const PetSearch = () => {
             <h3>{result.name}</h3>
             <p>Breed: {result.breed}</p>
             <p>Age: {result.age}</p>
+
+            <button onClick={() => onPetSelect(result)}>View Details</button>
           </div>
         ))}
       </div>
