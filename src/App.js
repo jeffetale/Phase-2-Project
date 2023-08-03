@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PetSearch from './PetSearch';
-import PetDetails from './PetDetails';
-import PetListing from './PetListing';
+import PetSearch from './components/PetSearch';
+import PetDetails from './components/PetDetails';
+import PetListing from './components/PetListing';
 
 const App = () => {
   const [selectedPet, setSelectedPet] = useState(null);
