@@ -8,6 +8,7 @@ const PetDetails = ({ pet, onBack }) => {
         <img src={pet.image} alt={pet.name} />
         <p>Breed: {pet.breed}</p>
         <p>Age: {pet.age}</p>
+        <p>Size: {pet.size}</p>
         <p>Description: {pet.description}</p>
       </div>
 

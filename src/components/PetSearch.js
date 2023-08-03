@@ -6,11 +6,16 @@ const PetSearch = ({ onPetSelect }) => {
 
   const handleSearch = () => {
     axios
-      .get("https://pets-api-yi52.onrender.com/pets", {
-        params: { q: searchValue },
-      })
+      .get("https://pets-api-yi52.onrender.com/pets")
       .then((response) => {
-        onPetSelect(response.data);
+        const filteredPets = response.data.filter((pet) =>
+          Object.values(pet)
+            .filter((value) => typeof value === "string")
+            .some((value) =>
+              value.toLowerCase().includes(searchValue.toLowerCase())
+            )
+        );
+        onPetSelect(filteredPets);
       })
       .catch((error) => {
         console.error("Error fetching search results:", error);
@@ -31,6 +36,5 @@ const PetSearch = ({ onPetSelect }) => {
     </div>
   );
 };
-
 
 export default PetSearch;
