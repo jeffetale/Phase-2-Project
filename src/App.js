@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PetSearch from "./components/PetSearch";
 import PetDetails from "./components/PetDetails";
 import PetListing from "./components/PetListing";
+import PetForm from "./components/PetForm.js"
 
 const App = () => {
   const [selectedPets, setSelectedPets] = useState([]);
@@ -30,6 +31,7 @@ const App = () => {
           <PetListing onPetSelect={handlePetSelect} />
         </>
       )}
+      <PetForm />
     </div>
   );
   
