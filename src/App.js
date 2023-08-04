@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, useParams } from "react-router-dom";
+import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import PetSearch from "./components/PetSearch";
 import PetDetails from "./components/PetDetails";
@@ -27,24 +29,33 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <h1>Pet Adoption App</h1>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/" end>Home</NavLink>
-           </li>
-           <li>
-             <NavLink to="/search">Pet Search</NavLink>
-           </li>
-           <li>
-             <NavLink to="/add">Add a Pet</NavLink>
-           </li>
-           <li>
-             <NavLink to="/favourites">My Favourites</NavLink>
-           </li>
-         </ul>
-       </nav>
+      <Container>
+        <Row className="mt-3">
+          <Col>
+            <h1 className="text-center">Pet Adoption App</h1>
+          </Col>
+        </Row>
+
+        <Row className="mt-3">
+          <Col>
+            <nav className="d-flex justify-content-end">
+              <ul>
+                <li>
+                  <NavLink to="/" end>Home</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/search">Pet Search</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/add">Add a Pet</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/favourites">My Favourites</NavLink>
+                </li>
+              </ul>
+            </nav>
+          </Col>
+        </Row>
 
         <Routes>
           <Route
@@ -82,7 +93,7 @@ const App = () => {
           />
         </Routes>
 
-      </div>
+      </Container>
     </Router>
   );
 };
