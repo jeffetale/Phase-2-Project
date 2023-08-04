@@ -1,11 +1,11 @@
 import React from 'react'
 
-const FavoritePets = ({ favorites }) => {
+const FavouritePets = ({ favourites }) => {
   return (
     <div>
-      <h2>My Favorites</h2>
-      <div className="favorites-list">
-        {favorites.map((pet) => (
+      <h2>My Favourites</h2>
+      <div className="favourites-list">
+        {favourites.map((pet) => (
           <div key={pet.id} className="pet-card">
             <img src={pet.image} alt={pet.name} />
             <h3>{pet.name}</h3>
@@ -18,4 +18,4 @@ const FavoritePets = ({ favorites }) => {
   );
 };
 
-export default FavoritePets;
+export default FavouritePets;

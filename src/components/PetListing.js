@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const PetListing = ({ onPetSelect }) => {
+const PetListing = ({ onPetSelect, onAddToFavourites }) => {
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
@@ -30,6 +30,8 @@ const PetListing = ({ onPetSelect }) => {
           </div>
         ))}
       </div>
+
+      
     </div>
   );
 };

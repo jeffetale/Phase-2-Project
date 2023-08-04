@@ -1,6 +1,6 @@
 import React from "react";
 
-const PetDetails = ({ pet, onBack }) => {
+const PetDetails = ({ pet, onBack, onAddToFavourites }) => {
   return (
     <div>
       <h2>{pet.name} Details</h2>
@@ -13,6 +13,9 @@ const PetDetails = ({ pet, onBack }) => {
       </div>
 
       <button onClick={onBack}>Back to Listings</button>
+
+      
+      <button onClick={() => onAddToFavourites(pet)}>Add to Favourites</button>
     </div>
   );
 };
