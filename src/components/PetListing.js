@@ -29,12 +29,20 @@ const PetListing = ({ onPetSelect }) => {
         {pets.map((pet) => (
           <Col key={pet.id}>
             <Card>
-              <Card.Img variant="top" src={pet.image} alt={pet.name} />
+              <Card.Img
+                variant="top"
+                src={pet.image}
+                alt={pet.name}
+                style={{ heinght: "200px", width: "200px", objectFit: "cover" }}
+              />
               <Card.Body>
                 <Card.Title>{pet.name}</Card.Title>
                 <Card.Text>Breed: {pet.breed}</Card.Text>
                 <Card.Text>Age: {pet.age}</Card.Text>
-                <Button variant="primary" onClick={() => handleViewDetails(pet)}>
+                <Button
+                  variant="primary"
+                  onClick={() => handleViewDetails(pet)}
+                >
                   View Details
                 </Button>
               </Card.Body>
