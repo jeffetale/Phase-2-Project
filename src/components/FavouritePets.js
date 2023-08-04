@@ -1,20 +1,25 @@
 import React from 'react'
+import { Card, Container, Row, Col } from 'react-bootstrap'
 
 const FavouritePets = ({ favourites }) => {
   return (
-    <div>
+    <Container>
       <h2>My Favourites</h2>
-      <div className="favourites-list">
+      <Row className="favourites-list">
         {favourites.map((pet) => (
-          <div key={pet.id} className="pet-card">
-            <img src={pet.image} alt={pet.name} />
-            <h3>{pet.name}</h3>
-            <p>Breed: {pet.breed}</p>
-            <p>Age: {pet.age}</p>
-          </div>
+          <Col key={pet.id} xs={12} md={6} lg={4}>
+            <Card className="pet-card">
+              <Card.Img variant="top" src={pet.image} alt={pet.name} />
+              <Card.Body>
+                <Card.Title>{pet.name}</Card.Title>
+                <Card.Text>Breed: {pet.breed}</Card.Text>
+                <Card.Text>Age: {pet.age}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
 

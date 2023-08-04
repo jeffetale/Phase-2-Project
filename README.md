@@ -26,7 +26,7 @@ Visit the live site: [https://marvelous-swan-6f2ff4.netlify.app/]
 
 - **React Router**: A declarative routing library that enables smooth navigation between different pages within the app.
 
-- **CSS**: Stylesheets have been used to design the components and layout of the web app.
+- **Bootstrap**: Bootstrap styling and effects have been used to design the components and layout of the web app.
 
 ## Installation and Local Development
 
