@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const PetListing = ({ onPetSelect, onAddToFavourites }) => {
+const PetListing = ({ onPetSelect }) => {
   const [pets, setPets] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -15,6 +17,10 @@ const PetListing = ({ onPetSelect, onAddToFavourites }) => {
       });
   }, []);
 
+  const handleViewDetails = (pet) => {
+    navigate(`/details/${pet.id}`);
+  };
+
   return (
     <div>
       <h2>Pet Listings</h2>
@@ -26,12 +32,10 @@ const PetListing = ({ onPetSelect, onAddToFavourites }) => {
             <p>Breed: {pet.breed}</p>
             <p>Age: {pet.age}</p>
 
-            <button onClick={() => onPetSelect([pet])}>View Details</button>
+            <button onClick={() => handleViewDetails(pet)}>View Details</button>
           </div>
         ))}
       </div>
-
-      
     </div>
   );
 };
