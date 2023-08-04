@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import PetSearch from "./components/PetSearch";
 import PetDetails from "./components/PetDetails";
@@ -32,19 +32,19 @@ const App = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/search">Pet Search</Link>
-            </li>
-            <li>
-              <Link to="/add">Add a Pet</Link>
-            </li>
-            <li>
-              <Link to="/favourites">My Favourites</Link>
-            </li>
-          </ul>
-        </nav>
+              <NavLink to="/" end>Home</NavLink>
+           </li>
+           <li>
+             <NavLink to="/search">Pet Search</NavLink>
+           </li>
+           <li>
+             <NavLink to="/add">Add a Pet</NavLink>
+           </li>
+           <li>
+             <NavLink to="/favourites">My Favourites</NavLink>
+           </li>
+         </ul>
+       </nav>
 
         <Routes>
           <Route
