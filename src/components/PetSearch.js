@@ -1,5 +1,6 @@
-import React, { useState, } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { Form, Button, Container } from "react-bootstrap";
 
 const PetSearch = ({ onPetSelect }) => {
   const [searchValue, setSearchValue] = useState("");
@@ -24,17 +25,21 @@ const PetSearch = ({ onPetSelect }) => {
   };
 
   return (
-    <div>
+    <Container>
       <h2>Pet Search</h2>
-      <div className="search-form">
-        <input
-          type="text"
-          placeholder="Search pets"
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-    </div>
+      <Form className="search-form">
+        <Form.Group controlId="formSearch">
+          <Form.Control
+            type="text"
+            placeholder="Search pets"
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+        </Form.Group>
+        <Button variant="primary" onClick={handleSearch}>
+          Search
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
