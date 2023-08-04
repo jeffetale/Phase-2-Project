@@ -56,7 +56,7 @@ const App = () => {
                 {selectedPets.length > 0 ? (
                   <>
                     {selectedPets.map((pet) => (
-                      <PetDetails key={pet.id} pet={pet} onBack={handleBack} onAddToFavourites={handleAddToFavourites} />
+                      <PetDetails key={pet.id} pet={pet} onAddToFavourites={handleAddToFavourites} />
                     ))}
                   </>
                 ) : null}
