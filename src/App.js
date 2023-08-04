@@ -16,8 +16,14 @@ const App = () => {
   };
  
   const handleAddToFavourites = (pet) => {
-    setFavourites((previousFavourites) => [...previousFavourites, pet])
-  }
+    setFavourites((previousFavourites) => {
+      if (previousFavourites.some((fav) => fav.id === pet.id)) {
+        return previousFavourites;
+      } else {
+        return [...previousFavourites, pet];
+      }
+    });
+  };
 
   return (
     <Router>
