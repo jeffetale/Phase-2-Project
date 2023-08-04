@@ -14,11 +14,7 @@ const App = () => {
   const handlePetSelect = (pets) => {
     setSelectedPets(pets);
   };
-
-  const handleBack = () => {
-    setSelectedPets([]);
-  };
-
+ 
   const handleAddToFavourites = (pet) => {
     setFavourites((previousFavourites) => [...previousFavourites, pet])
   }
@@ -75,7 +71,7 @@ const App = () => {
           <Route
             path="/details/:petId"
             element={
-              <PetDetailsPage onBack={handleBack} onAddToFavourites={handleAddToFavourites} />
+              <PetDetailsPage onAddToFavourites={handleAddToFavourites} />
             }
           />
         </Routes>
@@ -103,7 +99,7 @@ const PetDetailsPage = ({ onBack, onAddToFavourites }) => {
   if (!pet) return null;
 
   return (
-    <PetDetails pet={pet} onBack={onBack} onAddToFavourites={onAddToFavourites} />
+    <PetDetails pet={pet} onAddToFavourites={onAddToFavourites} />
   );
 };
 
