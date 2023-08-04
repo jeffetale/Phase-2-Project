@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Card, Button, Row, Col } from "react-bootstrap";
 
 const PetListing = ({ onPetSelect }) => {
   const [pets, setPets] = useState([]);
@@ -24,18 +25,23 @@ const PetListing = ({ onPetSelect }) => {
   return (
     <div>
       <h2>Pet Listings</h2>
-      <div className="pet-listings">
+      <Row xs={1} md={2} lg={3}>
         {pets.map((pet) => (
-          <div key={pet.id} className="pet-card">
-            <img src={pet.image} alt={pet.name} />
-            <h3>{pet.name}</h3>
-            <p>Breed: {pet.breed}</p>
-            <p>Age: {pet.age}</p>
-
-            <button onClick={() => handleViewDetails(pet)}>View Details</button>
-          </div>
+          <Col key={pet.id}>
+            <Card>
+              <Card.Img variant="top" src={pet.image} alt={pet.name} />
+              <Card.Body>
+                <Card.Title>{pet.name}</Card.Title>
+                <Card.Text>Breed: {pet.breed}</Card.Text>
+                <Card.Text>Age: {pet.age}</Card.Text>
+                <Button variant="primary" onClick={() => handleViewDetails(pet)}>
+                  View Details
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
+      </Row>
     </div>
   );
 };
