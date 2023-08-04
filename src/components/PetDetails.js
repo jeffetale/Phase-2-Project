@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, Container, Image } from "react-bootstrap";
 
 const PetDetails = ({ pet, onAddToFavourites }) => {
   const navigate = useNavigate();
@@ -9,21 +10,24 @@ const PetDetails = ({ pet, onAddToFavourites }) => {
   };
 
   return (
-    <div>
+    <Container>
       <h2>{pet.name} Details</h2>
       <div className="pet-details">
-        <img src={pet.image} alt={pet.name} />
+        <Image src={pet.image} alt={pet.name} fluid />
         <p>Breed: {pet.breed}</p>
         <p>Age: {pet.age}</p>
         <p>Size: {pet.size}</p>
         <p>Description: {pet.description}</p>
       </div>
 
-      <button onClick={handleBack}>Back to Listings</button>
+      <Button variant="secondary" onClick={handleBack}>
+        Back to Listings
+      </Button>
 
-      
-      <button onClick={() => onAddToFavourites(pet)}>Add to Favourites</button>
-    </div>
+      <Button variant="primary" onClick={() => onAddToFavourites(pet)}>
+        Add to Favourites
+      </Button>
+    </Container>
   );
 };
 
