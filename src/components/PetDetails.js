@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const PetDetails = ({ pet, onBack, onAddToFavourites }) => {
+const PetDetails = ({ pet, onAddToFavourites }) => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
       <h2>{pet.name} Details</h2>
@@ -12,7 +19,7 @@ const PetDetails = ({ pet, onBack, onAddToFavourites }) => {
         <p>Description: {pet.description}</p>
       </div>
 
-      <button onClick={onBack}>Back to Listings</button>
+      <button onClick={handleBack}>Back to Listings</button>
 
       
       <button onClick={() => onAddToFavourites(pet)}>Add to Favourites</button>
