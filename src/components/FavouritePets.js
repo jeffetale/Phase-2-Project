@@ -14,6 +14,8 @@ const FavouritePets = ({ favourites }) => {
                 <Card.Title>{pet.name}</Card.Title>
                 <Card.Text>Breed: {pet.breed}</Card.Text>
                 <Card.Text>Age: {pet.age}</Card.Text>
+                <Card.Text>Size: {pet.size}</Card.Text>
+                <Card.Text>Description: {pet.description}</Card.Text>
               </Card.Body>
             </Card>
           </Col>
