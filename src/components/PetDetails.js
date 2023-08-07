@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Image } from "react-bootstrap";
 
-const PetDetails = ({ pet, onAddToFavourites }) => {
+const PetDetails = ({ pet, onAddToFavourites, onDelete }) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -26,6 +26,10 @@ const PetDetails = ({ pet, onAddToFavourites }) => {
 
       <Button variant="primary" onClick={() => onAddToFavourites(pet)}>
         Add to Favourites
+      </Button>
+
+      <Button variant="danger" onClick={() => onDelete(pet)}>
+        Don't show again
       </Button>
     </Container>
   );

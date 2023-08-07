@@ -27,6 +27,20 @@ const App = () => {
     });
   };
 
+  const handleDeletePet = (pet) => {
+    setSelectedPets((previousPets) =>
+      previousPets.filter((p) => p.id !== pet.id)
+    );
+    axios
+      .delete(`https://pets-api-yi52.onrender.com/pets/${pet.id}`)
+      .then((response) => {
+        console.log("Pet deleted:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error deleting pet:", error);
+      });
+  };
+
   return (
     <Router>
       <Container>
@@ -73,7 +87,7 @@ const App = () => {
                 {selectedPets.length > 0 ? (
                   <>
                     {selectedPets.map((pet) => (
-                      <PetDetails key={pet.id} pet={pet} onAddToFavourites={handleAddToFavourites} />
+                      <PetDetails key={pet.id} pet={pet} onAddToFavourites={handleAddToFavourites} onDelete={handleDeletePet} />
                     ))}
                   </>
                 ) : null}
@@ -88,7 +102,7 @@ const App = () => {
           <Route
             path="/details/:petId"
             element={
-              <PetDetailsPage onAddToFavourites={handleAddToFavourites} />
+              <PetDetailsPage onAddToFavourites={handleAddToFavourites} onDelete={handleDeletePet} />
             }
           />
         </Routes>
@@ -98,7 +112,7 @@ const App = () => {
   );
 };
 
-const PetDetailsPage = ({ onBack, onAddToFavourites }) => {
+const PetDetailsPage = ({ onDelete, onAddToFavourites }) => {
   const [pet, setPet] = useState(null);
   const { petId } = useParams();
 
@@ -116,7 +130,7 @@ const PetDetailsPage = ({ onBack, onAddToFavourites }) => {
   if (!pet) return null;
 
   return (
-    <PetDetails pet={pet} onAddToFavourites={onAddToFavourites} />
+    <PetDetails pet={pet} onAddToFavourites={onAddToFavourites}  onDelete={onDelete} />
   );
 };
 
