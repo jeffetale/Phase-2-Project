@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, useParams } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import axios from "axios";
 import PetSearch from "./components/PetSearch";
 import PetDetails from "./components/PetDetails";
@@ -55,16 +56,16 @@ const App = () => {
             <nav className="d-flex justify-content-end">
               <ul>
                 <li>
-                  <NavLink to="/" end>Home</NavLink>
+                  <NavLink to="/" end activeClassName="active">Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/search">Pet Search</NavLink>
+                  <NavLink to="/search" activeClassName="active">Pet Search</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/add">Add a Pet</NavLink>
+                  <NavLink to="/add" activeClassName="active">Add a Pet</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/favourites">My Favourites</NavLink>
+                  <NavLink to="/favourites" activeClassName="active">My Favourites</NavLink>
                 </li>
               </ul>
             </nav>
